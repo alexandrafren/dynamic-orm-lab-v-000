@@ -51,7 +51,11 @@ class InteractiveRecord
      DB[:conn].execute(sql)
    end
 
-   def self.find_by
+   def self.find_by(hashy)
+     hashy.each do |property, value|
+      sql = "SELECT * FROM #{self.table_name} WHERE #{property} = '#{value}'"
+      DB[:conn].execute(sql)
+    end
    end
 
 end
