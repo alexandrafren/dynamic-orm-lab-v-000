@@ -52,10 +52,8 @@ class InteractiveRecord
    end
 
    def self.find_by(hashy)
-     hashy.each do |property, value|
-      sql = "SELECT * FROM #{self.table_name} WHERE #{property} = '#{value}'"
+      sql = "SELECT * FROM #{self.table_name} WHERE #{self.column_names} = '#{hashy}'"
       DB[:conn].execute(sql)
-    end
    end
 
 end
