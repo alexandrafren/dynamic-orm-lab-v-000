@@ -52,6 +52,8 @@ class InteractiveRecord
    end
 
    def self.find_by(hashy)
+     hashy_property = nil
+     hashy_value = nil
       hashy.each do |property, value|
         hashy_property = property
         hashy_value = value
